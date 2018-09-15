@@ -42,6 +42,13 @@
             <br />
             <small>selected: {{searchIndex}}</small><br /><br />
 
+            <select v-mode='selectedOption' >
+                <option value='a'>a</option>
+                <option value='b'>b</option>
+                <option value='c'>c</option>
+            </select><br/>
+            <small>Selected : {{selectedOption}}</small><br/><br/>
+
             <input v-model.number='result' placeholder="2+3="/><br/>
             <small>the answer : {{result}}</small>
 
@@ -57,7 +64,8 @@
                 query: '',
                 searchIndexes: [],
                 searchIndex: 'beers',
-                result: 0
+                result: 0,
+                selectedOption: ''
             }
         });        
     </script>
