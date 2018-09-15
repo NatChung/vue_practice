@@ -22,20 +22,19 @@
             <br />
             <div class="container">
 
-                <h2 v-text='appName'
-                    :class="[accentColor, headers]" >  
-                </h2>  
+                <h2 v-html='appHtml'></h2>
 
                 <h2 v-text='appName'
-                    :class="headerStyles" >  
-                </h2>  
-                
+                    :class="[accentColor, headers]" ></h2>  
+
+                <h2 v-text='appName'
+                    :class="headerStyles" ></h2>  
+
                 <h2 v-text='appName'
                     :class="{
                         'headers': true,
                         'accent-color': isOnline
-                    }" >  
-                </h2>   
+                    }" ></h2>   
                 
                 <img :src='appLogo'/>           
             </div>
@@ -47,6 +46,7 @@
                 el: '#growler',
                 data: {
                     appName: 'Growler',
+                    appHtml: '<a href="/">Growler</a>',
                     appLogo: '/public/logo.png',
                     headers:'headers',
                     accentColor:'accent-color',
