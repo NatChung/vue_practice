@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>Growler</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="growler">
+        <br />
+        <div class="container">
+            <input type="search" v-model='query' />
+            <button type="button" v-on:click='executeSearch'>Search</button>
+        </div>
+
+        <br/><br/>
+
+        <div v-on:click='grandparentClick'>
+            <div v-on:click='parentClick'>
+                <button v-on:click='executeButton' type="button" >Button</button>
+            </div>
+        </div>
+
+        <br/><br/>
+
+        <form action='#' method='GET'>
+            <input type="search" v-model='query' id='formQuery' name='formQuery' />
+            <button type="submit" v-on:click='executeSearchForm'>Search</button><br/>
+            <small>searching for : {{query}}</small>
+
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.2.5/dist/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var growler = new Vue({
+            el: '#growler',
+            data: {
+                appName: 'Growler',
+                query: '',
+                formQuery: '',
+            },
+            methods: {
+                executeSearch: () => {
+                    alert(this.query)
+                },
+                executeButton: function () {
+                    console.log('executeButton')
+                },
+                parentClick: () => {
+                    console.log('parentClick')
+                },
+                grandparentClick: () => {
+                    console.log('grandparentClick')
+                },
+                executeSearchForm:  () => {
+                    // if(this.formQuery.length > 0){
+                    //     document.forms[0].submit()
+                    // }else{
+                    //     console.log('Please enter q query')
+                    // }
+                }
+
+            }
+        });        
+    </script>
+</body>
+
+</html>
